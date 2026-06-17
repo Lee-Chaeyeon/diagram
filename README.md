@@ -4,21 +4,20 @@
 %%{init: {
   'theme': 'base',
   'themeVariables': {
-    'primaryColor': '#E3F2FD',
-    'primaryTextColor': '#1E3A8A',
-    'primaryBorderColor': '#90CAF9',
-    'lineColor': '#475569',
-    'secondaryColor': '#E8F5E9',
-    'tertiaryColor': '#FFF3E0'
+    'primaryColor': '#EDF2F7',
+    'primaryTextColor': '#2D3748',
+    'primaryBorderColor': '#CBD5E0',
+    'lineColor': '#4A5568',
+    'secondaryColor': '#EBF8FF',
+    'tertiaryColor': '#F7FAFC'
   }
 }}%%
-graph TB
+graph TD
 
 %% 데이터 소스 영역
 subgraph S1["📦 DATA SOURCE"]
     A1["🛸 드론 영상"]
     A2["📷 ESP32-CAM 영상"]
-    A3["🎬 테스트 영상"]
 end
 
 %% AI 및 분석 서버 영역
@@ -36,38 +35,36 @@ end
 
 %% 저장소 영역
 subgraph S3["💾 STORAGE"]
-    F1[("📊 위험 이력 저장<br>(데이터 저장소)")]
-    F2[("📸 캡처 이미지 저장")]
+    F1[("📊 위험 이력 저장 (데이터 저장소)")]
 end
 
 %% 사용자 영역
 G[["👤 사용자 (관제 시스템)"]]
 
 %% --- 스타일 지정 ---
-style S1 fill:#F8FAFC,stroke:#CBD5E1,stroke-width:2px,stroke-dasharray: 5 5
-style S2 fill:#F0FDF4,stroke:#BBF7D0,stroke-width:2px
-style S3 fill:#FFFBEB,stroke:#FDE68A,stroke-width:2px
-style G fill:#EFF6FF,stroke:#BFDBFE,stroke-width:2px
+style S1 fill:#F8FAFC,stroke:#94A3B8,stroke-width:1.5px,stroke-dasharray: 4 4
+style S2 fill:#F1F5F9,stroke:#64748B,stroke-width:1.5px
+style S3 fill:#EFF6FF,stroke:#3B82F6,stroke-width:1.5px
+style G fill:#F0FDF4,stroke:#22C55E,stroke-width:1.5px
 
-%% --- 데이터 흐름 및 연결 관계 ---
+%% --- 데이터 흐름 고정 및 연결 (선 꼬임 방지) ---
 A1 --> B
 A2 --> B
-A3 --> B
 
-B ==> c1
-B ==> c2
-c1 ==> D
-c2 ==> D
-D ==> E
+B --> c1
+B --> c2
+
+c1 --> D
+c2 --> D
+D --> E
 
 E --> F1
-E --> F2
 
-G <-->|실시간 관제| E
-G <-->|데이터 조회| F1
+%% 사용자 및 연동 흐름을 우측 배치 유도
+E <-->|실시간 관제| G
+F1 <-->|데이터 조회| G
 F1 <-->|데이터 연동| E
 
 %% 화살표 스타일
-linkStyle default stroke:#475569,stroke-width:2px;
+linkStyle default stroke:#4A5568,stroke-width:1.5px;
 ```
-
