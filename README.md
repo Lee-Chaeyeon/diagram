@@ -1,6 +1,7 @@
 # diagram
 다이어그램 생성 및 편집용
 
+```mermaid
 %%{init: {'theme': 'neutral', 'themeVariables': { 'primaryColor': '#F4F5F7', 'edgeLabelBackground':'#ffffff', 'clusterBkg':'#FAFAFA', 'clusterBorder':'#E0E0E0'}}}%%
 graph TB
 
@@ -67,3 +68,4 @@ graph TB
     style F1 fill:#ECEFF1,stroke:#607D8B,stroke-width:1px;
     style F2 fill:#ECEFF1,stroke:#607D8B,stroke-width:1px;
     style G fill:#263238,stroke:#263238,stroke-width:2px,color:#fff;
+{content: }
